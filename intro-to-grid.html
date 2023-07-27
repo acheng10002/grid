@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Forms</title>
+    <link rel="stylesheet" href="intro-to-grid.css">
+  </head>
+  <body>
+    <h1>Row of flex items</h1>
+    <div class="flex-container-1">
+        <div class="one-1"></div>
+        <div class="two-1"></div>
+        <div class="three-1"></div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h1>Column of flex items</h1>
+    <div class="flex-container-2">
+        <div class="one-2"></div>
+        <div class="two-2"></div>
+        <div class="three-2"></div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h1>2-D Layout made easier with CSS Grid</h1>
+    <div class="grid-container">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div> 
+    </div>
+    <br>
+    <br>
+    <br>
+    <h1>Simple grid</h1>
+    <!-- parent marked class="container" is a grid container -->
+    <div class="container">
+        <!-- each of the direct child elements automatically become grid items; I don't have to assign each child element a property -->
+        <div>Item 1</div>
+        <div>Item 2
+            <!-- the <p> child of a grid item, IS NOT itself a grid item --> 
+            <p>I am not a grid item!</p>
+        </div>
+        <div>Item 3</div>
+        <div>Item 4</div>
+      </div>
+  </body>
+</html>
