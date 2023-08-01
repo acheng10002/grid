@@ -23,19 +23,8 @@
 
 .grid-container {
     display: grid;
-
-    /* values represent track size, and the space between them represent the grid lines 
-       track-size - can be a length, a percentage, or a fraction of the free space in the grid, using the fr unit 
-       line-name - arbitrary name of my choosing */
     grid-template-columns: 75px 75px 75px;
-    /* e.g. 1fr 1fr
-            minmax(10px, 1fr) 3fr
-            repeat(5, 1fr)
-            50px auto 100px 1fr */
     grid-template-rows: 95px 95px;
-    /* e.g.
-       min-content 1fr min-content
-       100px 1fr max-content */
     gap: 32px;
 }
   
@@ -47,13 +36,6 @@
 /* turns an element into a grid container (or use, display: inline-grid) */
 .container {
     display: grid;
-    /* column tracks are the spaces between my columns */
-
-    /* third value makes a third column */
-    /* grid-template-columns: 50px 50px 50px;
-
-    row tracks are the spaces between my rows 
-    grid-template-rows: 50px 50px; */
 
     /* rows defined before the slash and columns after */
     /* columns and rows don't have to share the same values; first column is 5x as wide as the others */
@@ -80,32 +62,9 @@
     row-gap: 100px;
 
     /* or
-    gap: 20px;  to set both row-gap and column-gap 
+    gap: 20px;  to set both row-gap and column-gap */
+} 
     
-    grid lines are automatically assigned positive numbers (-1 being an alternate for the very last row or the very last column 
-    
-    the lines may be explicitly named using bracket syntax for line names
-    .container {
-        grid-template-columns: [first] 40px [line2] 50 px [line3] auto [col4-start] 50px [five] 40px [end] 
-        grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line] 
-        
-    a line can have more than one name
-
-    use repeat() notation to streamline definitions with repeating parts
-    .container {
-        grid-template-columns: repeat(3, 20px [col-start]);
-
-    multiple lines that share the same name can be referenced by their line name and count
-
-    fr unit - lets me set the size of track as a fraction of the free space of the grid container
-    .container {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    free space is calculated is calculated after any non-flexible items
-    */
-}
-
 /* > is the child combinator or direct child selector */
 .container-2 > div {
     border: 1px solid blue;
@@ -127,66 +86,6 @@
     background-color: peachpuff;
     border: 1px solid black;
 }
-
-/* .grid-item {
-        grid-column-start: <number> | <name> | span <number> | span <name> | auto;
-        grid-column-end: <number> | <name> | span <number> | span <name> | auto;
-        grid-row-start: <number> | <name> | span <number> | span <name> | auto;
-        grid-row-end: <number> | <name> | span <number> | span <name> | auto;
-    }
-
-    above 4 properties determine an item's location within the grid by referring to specific grid lines
-
-    <line> - can be a number or name to refer to a numbered or named grid line
-    span <number> - item will span across the provided number of grid tracks
-    span <name> - item will span across until it hits the next line with the provided name
-    auto - indicates auto-placement, an automatic span, or a default span of one
-
-    .item-a {
-        grid-column-start: 2;
-        grid-column-end: five;
-        grid-row-start: row1-start;
-        grid-row-end: 3;
-    }
-
-    .item-b {
-        grid-column-start: 1;
-        grid-column-end: span col4-start;
-        grid-row-start: 2;
-        grid-row-end: span 2;
-    }
-
-    if no grid-column-end/grid-row-end is declared, item will span 1 track by default
-
-    items can overlap each other; us z-index to control their stacking order
-
-    .item {
-        grid-column: <start-line> / <end-line> | <start-line> / span <value>;
-        grid-row: <start-line> / <end-line> | <start-line> / span <value>;
-
-    .item-c {
-        grid-column: 3 / span 2;
-        grid-row: third-line / 4;
-    }
-
-    grid-area - gives an item a name so that it can be referenced by a template created with grid-template-areas
-    grid-area - also shorter shorthand for 
-        grid-column-start: ;
-        grid-column-end: ;
-        grid-row-start: ;
-        grid-row-end: ;
-
-    <name> - name of my choosing
-    <row-start> / <column-start> / <row-end> / <column-end> - can be numbers or named lines
-
-    .item-d {
-        grid-area: header;
-    }
-
-    .item-e {
-        grid-area: 1 / col4-start / last-line / 6;
-    }
-*/
 
 :root {
     --yellow: #ffc600;
@@ -259,4 +158,4 @@ h6 {
 
 .item-4 p {
     margin: 0 0 5px 0;
-} 
+}
