@@ -201,3 +201,153 @@
         grid-area: 1 / col4-start / last-line / 6;
     }
 */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    border: 1px solid black;
+}
+
+.box {
+    border: 1px solid black;
+}
+
+/* or use the grid-area property-
+   grid-row-start 
+   grid-column-start
+   grid-row-end
+   grid-column-end */   
+
+.box1 {
+    grid-column-start: 1;
+    /* grid-column-end: 2;  this line isn't necessary because grid defaults to spanning one track */
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+    /* grid-column: 1;      alt. grid-column: 1 / 2;
+       grid-row: 1 / 4; 
+       
+       or
+       
+       grid-area: 1 / 1 / 4 / 2; */
+}
+
+.box2 {
+    grid-column-start: 3;
+    /* grid-column-end: 4; */
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    /* grid-column: 3;      alt. grid-column: 3 / 4;
+       grid-row: 1 / 3; 
+       
+        or
+       
+       grid-area: 1 / 3 / 3 / 4;*/
+}
+
+.box3 {
+    grid-column-start: 2;
+    /* grid-column-end: 3; */
+    grid-row-start: 1;
+    /* grid-row-end: 2; */
+
+    /* grid-column: 2;      alt. grid-column: 2 / 3;
+       grid-row: 1;         alt. grid-row: 1 / 2; 
+       
+        or
+       
+       grid-area: 1 / 2 / 2 / 3; */
+
+}
+
+.box4 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    /* grid-row-end: 4; */
+
+    /* grid-column: 2 / 4;
+       grid-row: 3;        alt. grid-row: 3 / 4; 
+
+       or
+       
+    grid-area: 3 / 2 / 4 / 4; */
+}
+
+.box1a {
+    grid-column-start: -1;
+    grid-column-end: -2;
+    grid-row-start: -1;
+    grid-row-end: -4;
+}
+
+.box2a {
+    grid-column-start: -3;
+    grid-column-end: -4;
+    grid-row-start: -1;
+    grid-row-end: -3;
+}
+
+.box3a {
+    grid-column-start: -2;
+    grid-column-end: -3;
+    grid-row-start: -1;
+    grid-row-end: -2;
+}
+
+.box4a {
+    grid-column-start: -2;
+    grid-column-end: -4;
+    grid-row-start: -3;
+    grid-row-end: -4;
+}
+
+/*
+.item {
+    grid-column: 1 / -1;      addressing the start and end lines of the grid lets me stretch an item across the grid
+} */
+
+.with-gap {
+    column-gap: 20px;         /* alt. 1 em 20px     first is row-gap and second is column-gap */
+    row-gap: 1em;
+
+    /* the gap acts as if the line has gained extra width */
+}
+
+/* specify a start line and then the number of tracks I would like the area to span */
+.box1b {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+}
+
+.box2b {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+}
+
+.box3b {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.box4b {
+    grid-column: 2 / span 2;
+    grid-row: 3;
+}
+
+/* using span in the value of <grid-row-start> / <grid-row-end> and <grid-column-start> / <grid-column-end> 
+   the following two examples will create the same grid area
+.box1c {
+    grid-column-start: ;
+    grid-row-start: ;
+    grid-row-end: ;
+}
+
+.box1c {
+    grid-column-start: ;
+    grid-row-start: ;
+    grid-row-end: ;
+}
+*/
