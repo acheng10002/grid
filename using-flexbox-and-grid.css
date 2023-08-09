@@ -1,0 +1,294 @@
+.layout {
+    /* grid is better here if I ever want to move these boxes...
+       if I want the third box to stretch in a second row, so that boxes didn't shrink too much to fit in only one */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px; /* sets a gap between columns but not between rows */
+}
+
+.child {
+    min-height: 100px;
+    background: pink;
+}
+
+.layout-1 {    /* overall layout is grid 
+                  this way, grid items can be moved around using the 2-D placement Grid allows for */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px; /* sets the same gap between columns and between rows */
+}
+
+.child-1 {      /* grid items act as flex parents 
+                   content inside the grid items can freely move around using Flex */
+    background: orange;     /* .child-1 elements are grid items and flex parents */
+    text-align: center;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;     /* space between the flex items inside each grid item */
+}
+
+.last-row {
+    grid-column: 1 / 3;    /* third box stretches in second row */
+}
+
+.child-1 > div {
+    height: 50px;
+    background: darkred;    /* .child-1 > div elements are flex children */
+    flex: 0 1 30%;    /* flex item won't grow, can shrink with proportion, and will have an initial size of 30% of the available space */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 12px;
+}
+
+.dont-render-dawg {
+    position: absolute;
+    height: 0;
+    width: 0;
+}
+
+.main-nav {
+    background: #eee;
+}
+    
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+
+.main-nav a {
+    padding: 1.25rem 0.5rem;
+    font-size: 1.6rem;
+    max-width: 140px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: flex-start;
+    color: #333;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    background: #ccc;
+    color: black;
+}
+
+.main-nav a:hover svg,
+.main-nav a:focus svg {
+    fill: green;
+}
+
+.main-nav a:hover span,
+.main-nav a:focus span {
+    color: black;
+}
+
+.main-nav span {
+    display: block;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #888;
+    margin: 0.25rem 0 0 0;
+}
+
+.main-nav .icon {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 1rem;
+    fill: #999;
+}
+
+.main-nav.outlines * {
+    outline: 1px solid rgba(red, 0.5);
+}
+
+.options {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.options select {
+    margin-right: 2rem;
+}
+
+@media (min-width: 1000px) {
+    .main-nav a {
+        max-width: 500px;
+        font-size: 2rem;
+    }
+    .main-nav.icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@import url("https://fonts.googleapis.com/css?family=PT+Sans");
+.wrapper {
+  font-family: "PT Sans";
+  display: flex;    /* this allows me to set a max-width on my .grid and use justify-content to place the wrapper in the middle of the viewport */
+  justify-content: center;
+  border: 1px solid #ff4136;
+  padding: 30px;
+}
+
+.grid {
+  display: grid;
+  border: 1px solid black;
+  max-width: 800px;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-gap: 20px;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.ad {   /* .ad takes up a whole row in my grid and this won't mess up the rest of the children of my grid */
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.content, .sidebar, .ad {
+  font-size: 14px;
+  border: 1px dotted #0074d9;
+  background-color: rgba(0, 116, 217, 0.1);
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper,
+.grid,
+.sidebar,
+.content,
+.ad {
+    position: relative;
+}
+  
+.wrapper:after,
+.grid:after,
+.sidebar:after,
+.content:after,
+.ad:after {
+  position: absolute;
+  text-transform: uppercase;
+  left: 0;
+  top: 0;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.grid:after {
+  content: "grid";
+  background-color: #222;
+}
+
+.sidebar:after {
+  content: "sidebar";
+  background-color: #0074d9;
+}
+
+.ad:after {
+  content: "ad";
+  background-color: #0074d9;
+}
+
+.content:after {
+  content: "content";
+  background-color: #0074d9;
+}
+
+.wrapper:after {
+  content: "wrapper";
+  background-color: #ff4136;
+}
+
+/* with CSS Grid, I can set relationships horizontally (with grid-template-columns) and vertically (with grid-template-rows) at the same time */
+
+.layout-2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.child-2 {
+    min-height: 100px;
+    background: orange;
+    flex: calc(100% / 3);   /* children's flex-basis is 1/3 the width of the container and flex-grow allows the children to stretch 
+                               first 6 flex items fit 3 in a row, for 6 in 2 rows, and the last flex item grows to take up all remaining space in the row */
+    text-align: center;
+    line-height: 100px;
+    border: 5px solid white;
+}
+  
+* {
+    box-sizing: border-box;
+}
+
+.layout-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 8px;
+}
+  
+.child-3 {
+    min-height: 100px;
+    background: orange;
+    line-height: 100px;
+    text-align: center;
+
+    /* no layout properties are needed on the child elements */
+}
+
+.layout-4 {
+    display: flex;
+    justify-content: space-around;
+}
+  
+.child-4 {      
+    display: flex;
+    justify-content: space-around;
+  }
+  
+.child-4 {      /* .child-4 elements are flex items and grid parents */
+    width: 200px;
+    height: 200px;
+    background: orange;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+}
+  
+.child-4 span {
+    background: darkred;    /* .child-4 */
+}
+  
+.child-4 span:nth-child(1) {
+    grid-row: 2/3;
+    grid-column: 5/6;
+}
+  
+.child-4 span:nth-child(2) {
+    grid-row: 5/7;
+    grid-column: 1/3;
+}
+  
+.child-4 span:nth-child(3) {
+    grid-row: 6/7;
+    grid-column: 6/7;
+}
+  
+.child-4 span:nth-child(4) {
+    grid-row: 8/9;
+    grid-column: 2/6;
+}
